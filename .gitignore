@@ -24,3 +24,10 @@ go.work.sum
 
 # env file
 .env
+
+
+# Docker secrets
+*.env
+
+# Docker db data volume
+db_data/*
