@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package = "github.com/rbieldt/CLI-Todo/go/grpc";
+
+package grpc;
+
+service TodoService {
+  rpc AddTask(AddTaskRequest) returns (AddTaskResponse) {}
+  rpc GetTasks(GetTasksRequest) returns (GetTasksResponse) {}
+  rpc CompleteTask(CompleteTaskRequest) returns (CompleteTaskResponse) {}
+}
+
+message Task {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+  string status = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}
+
+message AddTaskRequest {
+  string title = 1;
+  string description = 2;
+}
+
+message AddTaskResponse {
+  Task task = 1;
+  string message = 2;
+}
+
+message GetTasksRequest {
+  bool include_completed = 1;
+}
+
+message GetTasksResponse {
+  repeated Task tasks = 1;
+}
+
+message CompleteTaskRequest {
+  int64 task_id = 1;
+}
+
+message CompleteTaskResponse {
+  Task task = 1;
+  string message = 2;
+}
