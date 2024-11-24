@@ -14,7 +14,7 @@ message Task {
   int64 id = 1;
   string title = 2;
   string description = 3;
-  string status = 4;
+  bool completed = 4;
   string created_at = 5;
   string updated_at = 6;
 }

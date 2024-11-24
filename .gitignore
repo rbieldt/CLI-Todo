@@ -31,3 +31,6 @@ go.work.sum
 
 # Docker db data volume
 db_data/*
+
+# Go secrets
+app-secrets.json
